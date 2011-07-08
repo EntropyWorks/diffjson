@@ -33,4 +33,3 @@ my_hash = YAML::load(File.open(ARGV[0]).read)
 my_json = my_hash.to_json
 
 puts my_json
-

@@ -37,4 +37,3 @@ my_new_hash = JSON.parse(my_json)
 my_pretty_hash = JSON.pretty_generate(my_new_hash)
 
 puts my_pretty_hash
-
