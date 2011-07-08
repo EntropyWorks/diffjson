@@ -26,12 +26,9 @@ require "bundler/setup"
 require 'json'
 require 'yaml'
 
-raise Exception, 'you must provide two json files' unless ARGV[0]
+raise Exception, 'you must provide a json files' unless ARGV[0]
 
-json1 = JSON.parse(File.open(ARGV[0]).read)
-#json2 = JSON.parse(File.open(ARGV[1]).read)
+my_hash = JSON.parse(File.open(ARGV[0]).read)
 
-test1 = JSON.pretty_generate(json1)
-#test2 = JSON.pretty_generate(json2)
+puts my_hash.to_yaml
 
-puts json1.to_yaml
