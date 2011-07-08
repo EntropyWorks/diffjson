@@ -5,8 +5,8 @@ From time to time I have to look at JSON formated configuration files.
 Doing this hurts my eyes!  To make my life slighlty easier I can convert
 them to the YAML layout instead. 
 
-What is in here
-===============
+What is in here?
+================
 
   * json2pretty 
      Takes a  hard to read optimized one line of JSON and makes it pretty.
@@ -18,8 +18,13 @@ What is in here
      Takes a YAML file and outputs it to STDOUT in that hard to read  but 
      optimized crap
 
-Goal 
-====
+But there is no diffjson!
+=========================
+
+You are correct!  I need to write the damn thing still.
+
+My Goal 
+=======
 Take two JSON files and compare them to see what there differences are.
 If you were to diff the example files you would find see they are different.
 Different internal layout but they contain the same information. (I just 
@@ -31,19 +36,18 @@ that have changed or have been added.
 Why
 ---
 
-> * Opscode chef-server stores data bags in json format.
+ * Opscode chef-server stores data bags in json format.
 
-> * You can edit a chef-server data bags file in a local editor. The import that 
+ * You can edit a chef-server data bags file in a local editor. The import that 
    with the knife command into the chef-server. You have a physical file.
 
-> * You can edit the chef-server data bags directlry with knife in you favorite
->   editor. When you save the tempory file it is imported into the chef-server.
+ * You can edit the chef-server data bags directlry with knife in you favorite
+   editor. When you save the tempory file it is imported into the chef-server.
 
-> * What if Admin Bob edits the chef-server data bag directly with knife and 
->   Admin Jill edits the same data bag locally and pushes it to the server.
+ * What if Admin Bob edits the chef-server data bag directly with knife and 
+   Admin Jill edits the same data bag locally and pushes it to the server.
 
-> ** I need to be learning Ruby. (Python, C, C++, Perl, JavaScript, etc...)
-
+ * I need to be learning Ruby. (Python, C, C++, Perl, JavaScript, etc...)
 
 
 ### Yazz D. Atlas © 2011
