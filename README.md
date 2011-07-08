@@ -5,6 +5,19 @@ From time to time I have to look at JSON formated configuration files.
 Doing this hurts my eyes!  To make my life slighlty easier I can convert
 them to the YAML layout instead. 
 
+What is in here
+===============
+
+  * json2pretty 
+     Takes a  hard to read optimized one line of JSON and makes it pretty.
+  * json2yaml
+     Takes a JSON file and outputs it to STDOUT in YAML format
+  * yaml2json
+     Takes a YAML file and outputs it to STDOUT in JSON format
+  * yaml2json-ugly
+     Takes a YAML file and outputs it to STDOUT in that hard to read  but 
+     optimized crap
+
 Goal 
 ====
 Take two JSON files and compare them to see what there differences are.
