@@ -1,0 +1,166 @@
+--- 
+id: bogus_listing
+port: 8082
+owner: www-data
+group: www-data
+packages: 
+  freetds-dev: ""
+gems: 
+  bundler: ""
+server_roles: 
+- bogus_listing
+type: 
+  bogus_listing: 
+  - rails
+  - unicorn
+repository: git@github.com:Example/bogus_listing.git
+revision: 
+  development: HEAD
+  dev_integration: develop
+  qa: master
+  staging: master
+  production: ""
+migrate: 
+  development: false
+  dev_integration: false
+  qa: false
+  staging: false
+  production: false
+force: 
+  development: false
+  dev_integration: false
+  qa: false
+  staging: false
+  production: false
+databases: 
+  log_dev_integration: 
+    reconnect: "true"
+    encoding: utf8
+    adapter: postgresql
+    host: db.dev.example.com
+    database: example_prod
+    username: user-removed
+    password: pw-removed
+  log_production: 
+    reconnect: "true"
+    encoding: utf8
+    adapter: postgresql
+    host: db.dev.example.com
+    database: example_prod
+    username: user-removed
+    password: pw-removed
+  sqlserver_production: 
+    reconnect: "true"
+    encoding: utf8
+    adapter: sqlserver
+    mode: dblib
+    username: user-removed
+    password: pw-removed
+    dataserver: db.example.com
+    database: example
+  production: 
+    reconnect: "true"
+    encoding: utf8
+    adapter: postgresql
+    username: user-removed
+    password: pw-removed
+    host: db.dev.example.com
+    database: example_prod
+  dev_integration: 
+    reconnect: "true"
+    encoding: utf8
+    adapter: postgresql
+    username: user-removed
+    password: pw-removed
+    host: db.dev.example.com
+    database: example_prod
+  sqlserver_qa: 
+    reconnect: "true"
+    encoding: utf8
+    adapter: sqlserver
+    mode: dblib
+    username: user-removed
+    password: pw-removed
+    dataserver: db.example.com
+    database: example_qa
+  sqlserver_dev_integration: 
+    reconnect: "true"
+    encoding: utf8
+    adapter: sqlserver
+    mode: dblib
+    username: user-removed
+    password: pw-removed
+    dataserver: db.example.com
+    database: example_qa
+  sqlserver_staging: 
+    reconnect: "true"
+    encoding: utf8
+    adapter: sqlserver
+    mode: dblib
+    username: user-removed
+    password: pw-removed
+    dataserver: db.example.com
+    database: example
+  staging: 
+    reconnect: "true"
+    encoding: utf8
+    adapter: postgresql
+    username: user-removed
+    password: pw-removed
+    host: db.dev.example.com
+    database: example_prod
+  log_staging: 
+    reconnect: "true"
+    encoding: utf8
+    adapter: postgresql
+    host: db.dev.example.com
+    database: example_prod
+    username: user-removed
+    password: pw-removed
+  qa: 
+    reconnect: "true"
+    encoding: utf8
+    adapter: postgresql
+    username: user-removed
+    password: pw-removed
+    host: db.dev.example.com
+    database: example_prod
+  log_qa: 
+    reconnect: "true"
+    encoding: utf8
+    adapter: postgresql
+    host: db.dev.example.com
+    database: example_prod
+    username: user-removed
+    password: pw-removed
+deploy_key: |
+  -----BEGIN RSA PRIVATE KEY-----
+  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  -----END RSA PRIVATE KEY-----
+
+deploy_to: /srv/bogus_listing
