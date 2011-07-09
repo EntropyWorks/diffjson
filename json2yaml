@@ -26,6 +26,24 @@ require "bundler/setup"
 require 'json'
 require 'yaml'
 
+class Hash
+  # Replacing the to_yaml function so it'll serialize hashes sorted (by their keys)
+  #
+  # Original function is in /usr/lib/ruby/1.8/yaml/rubytypes.rb
+  # 
+  # Credit goes to Dov Murik  http://snippets.dzone.com/user/dubek
+  #
+  def to_yaml( opts = {} )
+    YAML::quick_emit( object_id, opts ) do |out|
+      out.map( taguri, to_yaml_style ) do |map|
+        sort.each do |k, v|   # <-- here's my addition (the 'sort')
+          map.add( k, v )
+        end
+      end
+    end
+  end
+end
+
 raise Exception, 'you must provide a json files' unless ARGV[0]
 
 my_hash = JSON.parse(File.open(ARGV[0]).read)
