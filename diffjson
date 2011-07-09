@@ -1,0 +1,91 @@
+#!/usr/bin/env ruby
+#
+# Copyright (c) 2011 Yazz D. Atlas
+#
+# Permission is hereby granted, free of charge, to any person obtaining
+# a copy of this software and associated documentation files (the
+# "Software"), to deal in the Software without restriction, including
+# without limitation the rights to use, copy, modify, merge, publish,
+# distribute, sublicense, and/or sell copies of the Software, and to
+# permit persons to whom the Software is furnished to do so, subject to
+# the following conditions:
+#
+# The above copyright notice and this permission notice shall be
+# included in all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+# EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+# MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+# NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+# LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+# OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+# WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+require 'rubygems'
+require "bundler/setup"
+require 'json'
+require 'yaml'
+
+class Hash
+  # Replacing the to_yaml function so it'll serialize hashes sorted (by their keys)
+  #
+  # Original function is in /usr/lib/ruby/1.8/yaml/rubytypes.rb
+  # 
+  # Credit goes to Dov Murik  http://snippets.dzone.com/user/dubek
+  #
+  def to_yaml( opts = {} )
+    YAML::quick_emit( object_id, opts ) do |out|
+      out.map( taguri, to_yaml_style ) do |map|
+        sort.each do |k, v|   # <-- here's my addition (the 'sort')
+          map.add( k, v )
+        end
+      end
+    end
+  end
+end
+
+raise Exception, 'you must provide a json files' unless ARGV[1]
+
+my_hash_1 = JSON.parse(File.open(ARGV[0]).read)
+my_hash_2 = JSON.parse(File.open(ARGV[1]).read)
+
+# All of this need to be cleaned up and make it work.
+# 
+#def orderit(my_hash)
+#  ordered_yaml =  #{my_hash}.to_yaml
+#  yaml_hash  = YAML::load(ordered_yaml)
+#  new_json = yaml_hash.to_json
+#  my_new_hash = JSON.parse(new_json)
+#  my_pretty_json = JSON.pretty_generate(my_new_hash)
+#  puts my_pretty_json
+#end
+
+ordered_yaml_1 =  my_hash_1.to_yaml
+ordered_yaml_2 =  my_hash_2.to_yaml
+
+yaml_1_hash  = YAML::load(ordered_yaml_1)
+yaml_2_hash  = YAML::load(ordered_yaml_2)
+
+new_json_1 = yaml_1_hash.to_json
+new_json_2 = yaml_2_hash.to_json
+
+my_new_hash_1 = JSON.parse(new_json_1)
+my_new_hash_2 = JSON.parse(new_json_2)
+
+my_pretty_json_1 = JSON.pretty_generate(my_new_hash_1)
+my_pretty_json_2 = JSON.pretty_generate(my_new_hash_2)
+
+# Compare and tell me they match.
+whats_different_hash =  Hash[*((my_new_hash_2.size > my_new_hash_1.size) ? \
+                               my_new_hash_2.to_a - my_new_hash_1.to_a : \
+                               my_new_hash_1.to_a - my_new_hash_2.to_a).flatten] 
+
+if whats_different_hash == {}
+  print "Yea The files match\n"
+else
+  print "You have a problem and the files do not match\n"
+  # Need to add logic to write the files out so I can run diff -u 
+  # on them by hand
+end
+
+#puts orderit(my_hash_2)
